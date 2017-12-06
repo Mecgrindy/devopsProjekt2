@@ -1,3 +1,3 @@
 FROM frolvlad/alpine-oraclejdk8:slim
-COPY build/libs/example-0.0.1-SNAPSHOT.jar app.jar
+COPY build/libs/devopsProjekt2-0.0.1-SNAPSHOT.jar app.jar
 ENTRYPOINT ["java", "-jar", "app.jar"]
