@@ -13,7 +13,7 @@ pipeline {
         }
         stage("Docker build") {
             steps {
-                sh "docker build -t grindy/devops ."
+                sh "docker build -t grindy/devops-projekt ."
             }
         }
         stage("Docker login") {
@@ -23,7 +23,7 @@ pipeline {
         }
         stage("Docker push") {
             steps {
-                sh "docker push grindy/devops"
+                sh "docker push grindy/devops-projekt"
             }
         }
         stage("Deploy to Production"){
