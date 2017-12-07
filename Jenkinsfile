@@ -26,9 +26,9 @@ pipeline {
                 sh "docker push grindy/devops-projekt"
             }
         }
-        stage("Deploy to Production"){
+        stage("Docker to Staging"){
             steps{
-                sh "ansible-playbook playbook.yml -i inventory/production"
+                sh "docker run -d --rm -p 8765:8080 --name devopsprojekt grindy/devops-projekt"
             }
         }
         stage("Acceptance Test") {
