@@ -28,7 +28,7 @@ pipeline {
         }
         stage("Docker to Staging"){
             steps{
-                sh "docker run -d --rm -p 8765:8080 --name devopsprojekt grindy/devops-projekt"
+                sh "docker run -d --rm -p 8765:8090 --name devopsprojekt grindy/devops-projekt"
             }
         }
         stage("Acceptance Test") {
