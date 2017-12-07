@@ -13,17 +13,17 @@ pipeline {
         }
         stage("Docker build") {
             steps {
-                sh "sudo docker build -t grindy/devops-projekt ."
+                sh "docker build -t grindy/devops-projekt ."
             }
         }
         stage("Docker login") {
             steps {
-                sh "sudo docker login --username=grindy --password=$docker_password"
+                sh "docker login --username=grindy --password=$docker_password"
             }
         }
         stage("Docker push") {
             steps {
-                sh "sudo docker push grindy/devops-projekt"
+                sh "docker push grindy/devops-projekt"
             }
         }
         stage("Deploy to Production"){
