@@ -13,7 +13,7 @@ pipeline {
         }
         stage("Docker build") {
             steps {
-                sh "docker build -t grindy/devops-projekt ."
+                sh "docker build -t grindy/devops ."
             }
         }
         stage("Docker login") {
@@ -23,7 +23,7 @@ pipeline {
         }
         stage("Docker push") {
             steps {
-                sh "docker push grindy/devops-projekt"
+                sh "docker push grindy/devops"
             }
         }
         stage("Deploy to Production"){
@@ -33,14 +33,9 @@ pipeline {
         }
         stage("Acceptance Test") {
             steps {
-                sh "sleep 40"
-                sh "./acceptance_test.sh"
+                sh "sleep 30"
+                sh "./test.sh"
             }
-        }
-    }
-    post {
-        always {
-            sh "docker stop sumProjekt"
         }
     }
 }
